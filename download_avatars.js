@@ -9,18 +9,15 @@ console.log('Welcome to the GitHub Avatar Downloader!');
 var repoOwner = process.argv[2];
 var repo = process.argv[3];
 
-function callback(contributor) {
+function downloadContributorsAvatar(contributor) {
   var url = contributor.avatar_url;
   var filePath = `avatars/${contributor.login}`;
   downloadImageByURL(url, filePath);
 }
 
 if (repoOwner && repo){
-  getRepoContributors(repoOwner, repo, callback);
+  getRepoContributors(repoOwner, repo, downloadContributorsAvatar);
 } else {
   console.log('Input Invalid! Please enter in the format: \nnode download_avatars.js <Repository Owner> <Repository>');
 }
-
-
-
 

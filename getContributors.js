@@ -1,5 +1,6 @@
 var request = require('request');
 var GITHUB_TOKEN = require('./secrets.js').GITHUB_TOKEN;
+
 // get the list of contributors to a user-specified GitHub Repository, and call 'callback' function on contributor in the list:
 module.exports = function getRepoContributors(repoOwner, repoName, callback) {
   var options = {
