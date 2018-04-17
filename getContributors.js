@@ -13,8 +13,13 @@ module.exports = function getRepoContributors(repoOwner, repoName, callback) {
   request(options, function(err, response, body){
     if (err) throw err;
     var contributorList = JSON.parse(body);
-    console.log(contributorList);
-    contributorList.forEach(callback);
+    // console.log(contributorList);
+    if (contributorList.length > 0){
+      contributorList.forEach(callback);
+    } else {
+      console.log('No contributors found for the specified repository');
+    }
+
   });
 };
 

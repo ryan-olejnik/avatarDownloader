@@ -15,7 +15,12 @@ function callback(contributor) {
   downloadImageByURL(url, filePath);
 }
 
-getRepoContributors(repoOwner, repo, callback);
+if (repoOwner && repo){
+  getRepoContributors(repoOwner, repo, callback);
+} else {
+  console.log('Input Invalid! Please enter in the format: \nnode download_avatars.js <Repository Owner> <Repository>');
+}
+
 
 
 
